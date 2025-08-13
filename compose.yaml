@@ -1,0 +1,15 @@
+services:
+    db:
+        image: postgres:latest
+        hostname: ${DB_HOSTNAME}
+        ports:
+            - '5432:${DB_PORT}'
+        environment:
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ${DB_NAME}
+        volumes:
+            - db_data:/var/lib/job-board/postgresql/data
+
+volumes:
+    db_data:
